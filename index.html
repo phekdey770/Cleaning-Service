@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CleanPro - Professional Cleaning Services</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/2913/2913108.png">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #2E7D32;
+            --accent-color: #8BC34A;
+            --dark-color: #1B5E20;
+            --light-color: #F1F8E9;
+            --text-color: #333;
+            --text-light: #fff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Moul', 'Kantumruy Pro', sans-serif;
+        }
+
+        .modal-title {
+            font-family: 'Moulpali', 'Moul', 'Kantumruy Pro', sans-serif;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--light-color);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 50px;
+            transition: var(--transition);
+        }
+
+        .logo-text {
+            font-family: 'Moul', sans-serif;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 0 2rem;
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: block;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--primary-color);
+            width: fit-content;
+            margin: auto;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--text-light);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--text-light);
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--text-light);
+            color: var(--primary-color);
+        }
+
+        /* Services Section */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark-color);
+            font-size: 2.5rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-img img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 1.5rem;
+        }
+
+        .service-content h3 {
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--light-color);
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-content h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content p {
+            margin-bottom: 1rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .testimonials .section-title {
+            color: var(--text-light);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .testimonial-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 3px solid var(--primary-color);
+        }
+
+        .testimonial-card h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+        }
+
+        /* Contact Section */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--light-color);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Kantumruy Pro', sans-serif;
+        }
+
+        .form-group textarea {
+            height: 150px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--text-light);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            font-family: 'Moul', sans-serif;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-column a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-column a:hover {
+            color: var(--text-light);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Language Toggle */
+        .language-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: var(--primary-color);
+            border-radius: 30px;
+            padding: 5px;
+            display: flex;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .language-toggle button {
+            background: none;
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Kantumruy Pro', sans-serif;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .language-toggle button.active {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--dark-color);
+            transform: translateY(-3px);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-color);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-container {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--light-color);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: var(--transition);
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+            }
+        }
+
+        /* Animation Classes */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="https://cdn-icons-png.flaticon.com/512/2913/2913108.png" alt="CleanPro Logo">
+                <span class="logo-text">CleanPro</span>
+            </div>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#home" class="en nav-link">Home</a><a href="#home" class="kh nav-link" style="display: none;">ផ្ទះ</a></li>
+                    <li><a href="#services" class="en nav-link">Services</a><a href="#services" class="kh nav-link" style="display: none;">សេវាកម្ម</a></li>
+                    <li><a href="#about" class="en nav-link">About</a><a href="#about" class="kh nav-link" style="display: none;">អំពី</a></li>
+                    <li><a href="#testimonials" class="en nav-link">Testimonials</a><a href="#testimonials" class="kh nav-link" style="display: none;">សក្ខីកម្ម</a></li>
+                    <li><a href="#contact" class="en nav-link">Contact</a><a href="#contact" class="kh nav-link" style="display: none;">ទំនាក់ទំនង</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content animate-on-scroll">
+            <h1 class="en">Professional Cleaning Services</h1>
+            <h1 class="kh" style="display: none;">សេវាកម្មសំអាតវិជ្ជាជីវៈ</h1>
+            <p class="en">We provide top-quality cleaning services for homes and offices at affordable prices.</p>
+            <p class="kh" style="display: none;">យើងផ្តល់សេវាកម្មសំអាតគុណភាពខ្ពស់សម្រាប់ផ្ទះ និងការិយាល័យក្នុងតម្លៃសមរម្យ។</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn en">Get a Quote</a>
+                <a href="#contact" class="btn kh" style="display: none;">ស្នើសុំតម្លៃ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <h2 class="section-title en">Our Services</h2>
+        <h2 class="section-title kh" style="display: none;">សេវាកម្មរបស់យើង</h2>
+        <div class="services-grid">
+            <div class="service-card animate-on-scroll">
+                <div class="service-img">
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="House Cleaning">
+                </div>
+                <div class="service-content">
+                    <h3 class="en">House Cleaning</h3>
+                    <h3 class="kh" style="display: none;">សំអាតផ្ទះ</h3>
+                    <p class="en">Thorough cleaning of all rooms, including dusting, vacuuming, mopping, and bathroom sanitization.</p>
+                    <p class="kh" style="display: none;">ការសំអាតយ៉ាងហ្មត់ចត់នៃបន្ទប់ទាំងអស់ រួមទាំងការបោសធូលី បោសសម្អាត និងសំអាតបន្ទប់ទឹក។</p>
+                </div>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-img">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Office Cleaning">
+                </div>
+                <div class="service-content">
+                    <h3 class="en">Office Cleaning</h3>
+                    <h3 class="kh" style="display: none;">សំអាតការិយាល័យ</h3>
+                    <p class="en">Professional cleaning services for offices to maintain a clean and healthy work environment.</p>
+                    <p class="kh" style="display: none;">សេវាកម្មសំអាតវិជ្ជាជីវៈសម្រាប់ការិយាល័យដើម្បីរក្សាបរិស្ថានការងារស្អាត និងមានសុខភាពល្អ។</p>
+                </div>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-img">
+                    <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1631&q=80" alt="Deep Cleaning">
+                </div>
+                <div class="service-content">
+                    <h3 class="en">Deep Cleaning</h3>
+                    <h3 class="kh" style="display: none;">សំអាតជ្រៅ</h3>
+                    <p class="en">Intensive cleaning service that reaches deep into your home or office for a complete refresh.</p>
+                    <p class="kh" style="display: none;">សេវាកម្មសំអាតយ៉ាងជ្រៅដែលឈានដល់គ្រប់ជ្រុងនៃផ្ទះ ឬការិយាល័យរបស់អ្នកសម្រាប់ការសំអាតពេញលេញ។</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="about-container">
+            <div class="about-img animate-on-scroll">
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Our Team">
+            </div>
+            <div class="about-content animate-on-scroll">
+                <h2 class="en">About Us</h2>
+                <h2 class="kh" style="display: none;">អំពីយើង</h2>
+                <p class="en">CleanPro is a professional cleaning service company with over 10 years of experience in the industry. We take pride in delivering exceptional cleaning services to both residential and commercial clients.</p>
+                <p class="kh" style="display: none;">CleanPro គឺជាក្រុមហ៊ុនផ្តល់សេវាកម្មសំអាតវិជ្ជាជីវៈដែលមានបទពិសោធន៍ជាង ១០ឆ្នាំក្នុងឧស្សាហកម្មនេះ។ យើងមានមោទនភាពក្នុងការផ្តល់សេវាកម្មសំអាតដ៏ល្អឥតខ្ចោះដល់អតិថិជនទាំងផ្ទះសម្បែង និងអាជីវកម្ម។</p>
+                <p class="en">Our team consists of trained professionals who use eco-friendly products and modern equipment to ensure the best results for our clients.</p>
+                <p class="kh" style="display: none;">ក្រុមការងាររបស់យើងមានអ្នកវិជ្ជាជីវៈដែលបានបណ្តុះបណ្តាល ដែលប្រើផលិតផលគ្មានគ្រោះថ្នាក់ដល់បរិស្ថាន និងឧបករណ៍ទំនើបដើម្បីធានាលទ្ធផលល្អបំផុតសម្រាប់អតិថិជនរបស់យើង។</p>
+                <a href="#contact" class="btn en">Contact Us</a>
+                <a href="#contact" class="btn kh" style="display: none;">ទាក់ទងយើង</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <h2 class="section-title en">What Our Clients Say</h2>
+        <h2 class="section-title kh" style="display: none;">អ្វីដែលអតិថិជនរបស់យើងនិយាយ</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card animate-on-scroll">
+                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Client 1">
+                <h3>Sophia Chen</h3>
+                <p class="en">"CleanPro has been cleaning my home for 2 years now. They're always punctual and do an amazing job!"</p>
+                <p class="kh" style="display: none;">"CleanPro បានសំអាតផ្ទះរបស់ខ្ញុំអស់រយៈពេល ២ឆ្នាំមកហើយ។ ពួកគាត់តែងតែមកទាន់ពេល និងធ្វើការងារដ៏អស្ចារ្យ!"</p>
+            </div>
+            <div class="testimonial-card animate-on-scroll">
+                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Client 2">
+                <h3>David Johnson</h3>
+                <p class="en">"The best cleaning service I've ever used. My office has never looked better!"</p>
+                <p class="kh" style="display: none;">"សេវាកម្មសំអាតល្អបំផុតដែលខ្ញុំធ្លាប់ប្រើ។ ការិយាល័យរបស់ខ្ញុំមិនធ្លាប់មានរូបរាងល្អជាងនេះទេ!"</p>
+            </div>
+            <div class="testimonial-card animate-on-scroll">
+                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client 3">
+                <h3>Maria Garcia</h3>
+                <p class="en">"Professional, reliable, and thorough. I highly recommend CleanPro to everyone!"</p>
+                <p class="kh" style="display: none;">"វិជ្ជាជីវៈ គួរអោយទុកចិត្ត និងយ៉ាងហ្មត់ចត់។ ខ្ញុំសូមផ្តល់អនុសាសន៍ CleanPro ដល់មនុស្សគ្រប់គ្នា!"</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <h2 class="section-title en">Contact Us</h2>
+        <h2 class="section-title kh" style="display: none;">ទាក់ទងយើង</h2>
+        <div class="contact-form animate-on-scroll">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name" class="en">Name</label>
+                    <label for="name" class="kh" style="display: none;">ឈ្មោះ</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="en">Email</label>
+                    <label for="email" class="kh" style="display: none;">អ៊ីមែល</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone" class="en">Phone</label>
+                    <label for="phone" class="kh" style="display: none;">ទូរស័ព្ទ</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="message" class="en">Message</label>
+                    <label for="message" class="kh" style="display: none;">សារ</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn en">Send Message</button>
+                <button type="submit" class="btn kh" style="display: none;">ផ្ញើសារ</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3 class="en">CleanPro</h3>
+                <h3 class="kh" style="display: none;">CleanPro</h3>
+                <p class="en">Professional cleaning services for homes and offices.</p>
+                <p class="kh" style="display: none;">សេវាកម្មសំអាតវិជ្ជាជីវៈសម្រាប់ផ្ទះ និងការិយាល័យ។</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3 class="en">Quick Links</h3>
+                <h3 class="kh" style="display: none;">តំណភ្ជាប់រហ័ស</h3>
+                <ul>
+                    <li><a href="#home" class="en">Home</a><a href="#home" class="kh" style="display: none;">ផ្ទះ</a></li>
+                    <li><a href="#services" class="en">Services</a><a href="#services" class="kh" style="display: none;">សេវាកម្ម</a></li>
+                    <li><a href="#about" class="en">About</a><a href="#about" class="kh" style="display: none;">អំពី</a></li>
+                    <li><a href="#testimonials" class="en">Testimonials</a><a href="#testimonials" class="kh" style="display: none;">សក្ខីកម្ម</a></li>
+                    <li><a href="#contact" class="en">Contact</a><a href="#contact" class="kh" style="display: none;">ទំនាក់ទំនង</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="en">Contact Info</h3>
+                <h3 class="kh" style="display: none;">ព័ត៌មានទំនាក់ទំនង</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Street, Phnom Penh, Cambodia</li>
+                    <li><i class="fas fa-phone"></i> +855 12 345 678</li>
+                    <li><i class="fas fa-envelope"></i> info@cleanpro.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p class="en">2025 - All rights reserved. Provide by Mr. Phekdey PHORN</p>
+            <p class="kh" style="display: none;">2025 - រក្សារ​សិទ្ធិ​គ្រប់​យ៉ាង ដោយលោក ផន ភក្ដី។</p>
+        </div>
+    </footer>
+
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button id="en-btn" class="active">EN</button>
+        <button id="kh-btn">ខ្មែរ</button>
+    </div>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Modal -->
+    <div class="modal" id="thankYouModal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-modal">&times;</span>
+            <h2 class="modal-title en">Thank You!</h2>
+            <h2 class="modal-title kh" style="display: none;">សូមអរគុណ!</h2>
+            <p class="en">Your message has been sent successfully. We will contact you soon.</p>
+            <p class="kh" style="display: none;">សាររបស់អ្នកត្រូវបានផ្ញើដោយជោគជ័យ។ យើងនឹងទាក់ទងអ្នកឆាប់ៗនេះ។</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Language Toggle
+        const enBtn = document.getElementById('en-btn');
+        const khBtn = document.getElementById('kh-btn');
+        
+        enBtn.addEventListener('click', () => {
+            document.querySelectorAll('.en').forEach(el => el.style.display = 'block');
+            document.querySelectorAll('.kh').forEach(el => el.style.display = 'none');
+            enBtn.classList.add('active');
+            khBtn.classList.remove('active');
+        });
+        
+        khBtn.addEventListener('click', () => {
+            document.querySelectorAll('.en').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.kh').forEach(el => el.style.display = 'block');
+            enBtn.classList.remove('active');
+            khBtn.classList.add('active');
+        });
+
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        const thankYouModal = document.getElementById('thankYouModal');
+        const closeModal = document.getElementById('close-modal');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            thankYouModal.style.display = 'flex';
+            contactForm.reset();
+        });
+        
+        closeModal.addEventListener('click', () => {
+            thankYouModal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === thankYouModal) {
+                thankYouModal.style.display = 'none';
+            }
+        });
+
+        // Animation on Scroll
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+        
+        const animateOnScroll = () => {
+            animateElements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 100) {
+                    element.classList.add('animated');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.pageYOffset > 50) {
+                header.style.background = 'rgba(241, 248, 233, 0.95)';
+                header.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.1)';
+                document.querySelector('.logo img').style.height = '40px';
+            } else {
+                header.style.background = 'var(--light-color)';
+                header.style.boxShadow = 'var(--shadow)';
+                document.querySelector('.logo img').style.height = '50px';
+            }
+        });
+    </script>
+
+    <!-- Load Moul and Moulpali fonts -->
+    <style>
+        @font-face {
+            font-family: 'Moul';
+            src: url('https://cdn.jsdelivr.net/gh/googlefonts/khmer@master/fonts/Moul/Moul-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'Moulpali';
+            src: url('https://cdn.jsdelivr.net/gh/googlefonts/khmer@master/fonts/Moulpali/Moulpali-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+</body>
+</html>
